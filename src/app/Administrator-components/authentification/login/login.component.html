@@ -1,0 +1,29 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 200px;  background-size: cover; background-position: center top;">
+  <!-- Mask -->
+  <span class="mask bg-gradient-default opacity-8"></span>
+  <!-- Header container -->
+  <div class="container-fluid d-flex align-items-center">
+    <div class="row">
+      <div class="col-lg-7 col-md-10">
+      </div>
+    </div>
+  </div>
+</div>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label for="username" class="pull-left">Username :</label>
+    <input class="form-control"  id="username" type="text" formControlName="username"/>
+  </div>
+
+  <div class="form-group">
+    <label for="password" class="pull-left">Password :</label>
+    <input class="form-control"  id="password" type="password" formControlName="password"/>
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary pull-right" [disabled]="!loginForm.valid">Login</button>
+  </div>
+
+
+</form>

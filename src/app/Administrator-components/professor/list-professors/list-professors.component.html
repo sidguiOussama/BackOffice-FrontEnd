@@ -1,0 +1,30 @@
+<div class="">
+  <div class="container ">
+    <h1>liste des enseignants</h1>
+
+    <table class="table table-restricted">
+      <thead>
+      <tr>
+
+       <th>Prenom</th>  <th>Nom</th>
+        <th>Email</th> <th>Tel</th>
+        <th>username</th> <th>Nom d'ecole</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let s of professors;">
+
+        <td> {{ s.firstName }} </td>
+        <td> {{ s.lastName }} </td>
+        <td> {{ s.email }} </td>
+        <td> {{ s.phone }} </td>
+        <td>{{s.account.userName}}</td>
+        <td>{{s.account.school.name}}</td>
+
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

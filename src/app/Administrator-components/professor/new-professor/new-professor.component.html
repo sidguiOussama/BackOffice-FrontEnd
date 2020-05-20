@@ -1,0 +1,44 @@
+
+<form [formGroup]="professorForm" (ngSubmit)="OnSubmit()">
+
+
+
+  <div class="form-group">
+    <label for="firstName" class="pull-left">Prenom :</label>
+    <input class="form-control"  id="firstName" type="text" formControlName="firstName"/>
+  </div>
+
+  <div class="form-group">
+    <label for="lastName" class="pull-left">Nom :</label>
+    <input class="form-control"  id="lastName" type="text" formControlName="lastName"/>
+  </div>
+
+  <div class="form-group">
+    <label for="phone" class="pull-left">N° Tel :</label>
+    <input class="form-control"  id="phone" type="text" formControlName="phone"/>
+  </div>
+
+  <div class="form-group">
+    <label for="email" class="pull-left">Email :</label>
+    <input class="form-control"  id="email" type="text" formControlName="email"/>
+  </div>
+
+
+
+  <div class="form-group">
+    <label for="school" class="pull-left">School :</label>
+    <select formControlName="school" class="form-control"  id="school" name="school">
+      <option *ngFor="let school of schoools" [ngValue]="school">
+        {{ school.name }}
+      </option>
+    </select>
+  </div>
+
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary pull-right" [disabled]="!professorForm.valid">Submit</button>
+  </div>
+
+
+
+</form>

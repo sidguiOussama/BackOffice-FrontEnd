@@ -1,0 +1,15 @@
+
+<form [formGroup]="levelForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label  class="pull-left">niveau :</label>
+    <input class="form-control"  type="text" formControlName="name"/>
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary pull-right" [disabled]="!levelForm.valid">Submit</button>
+  </div>
+
+
+
+</form>

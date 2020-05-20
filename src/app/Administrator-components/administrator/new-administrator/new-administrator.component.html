@@ -1,0 +1,58 @@
+
+
+  <h3>Inscription </h3>
+  <form [formGroup]="administratorForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="firstName" class="pull-left">Prenom :</label>
+      <input class="form-control"  id="firstName" type="text" formControlName="firstName"/>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName" class="pull-left">Nom :</label>
+      <input class="form-control"  id="lastName" type="text" formControlName="lastName"/>
+    </div>
+
+    <div class="form-group">
+      <label for="phone" class="pull-left">N° Tel :</label>
+      <input class="form-control"  id="phone" type="text" formControlName="phone"/>
+    </div>
+
+    <div class="form-group">
+      <label for="email" class="pull-left">Email :</label>
+      <input class="form-control"  id="email" type="text" formControlName="email"/>
+    </div>
+
+    <div class="form-group">
+      <label for="schoolName" class="pull-left">Nom d'ecole :</label>
+      <input class="form-control"  id="schoolName" type="text" formControlName="schoolName"/>
+    </div>
+
+
+    <div class="form-group">
+      <label for="schoolPhone" class="pull-left">Ecole num :</label>
+      <input class="form-control"  id="schoolPhone" type="text" formControlName="schoolPhone"/>
+    </div>
+
+
+    <div class="form-group">
+      <label for="schoolWebSite" class="pull-left">Website Ecole :</label>
+      <input class="form-control"  id="schoolWebSite" type="text" formControlName="schoolWebSite"/>
+    </div>
+
+    <div class="form-group">
+      <label for="schoolAddress" class="pull-left">Addrese ecole :</label>
+      <input class="form-control"  id="schoolAddress" type="text" formControlName="schoolAddress"/>
+    </div>
+
+
+
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary pull-right" [disabled]="!administratorForm.valid">Submit</button>
+    </div>
+
+
+  </form>
+
+
