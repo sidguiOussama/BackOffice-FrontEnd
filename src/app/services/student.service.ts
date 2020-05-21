@@ -5,7 +5,6 @@ import {HttpClient} from '@angular/common/http';
 import ObjectID from 'bson-objectid';
 import {Student} from '../models/Student.module';
 import {School} from '../models/School.module';
-import {Converter} from '../models/converter.module';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +13,6 @@ export class StudentService {
   students: Student[] = [];
   studentSubject = new Subject<Student[]>() ;
   url = 'http://localhost:8080/student';
-  convert_url = 'http://localhost:8080/converter';
   constructor(private  http: HttpClient) { }
 
   emitStudentSubject() {
@@ -46,26 +44,15 @@ export class StudentService {
   }
 
   getStudentsBySchoolId(school: School) {
-    alert(JSON.stringify(school));
-    this.http.post<Converter>(this.convert_url + '/toHexString', school.id).subscribe(
-      (stringId) => {
-        alert(JSON.stringify(stringId));
-        const id = '' + stringId.id;
-        console.log(id);
-        console.log('5ec464d9f40f191cb9a2b63d');
-        this.http.post<Student[]>('http://localhost:8080/student/getBySchoolId/'  , school ).subscribe(
+    this.http.get<Student[]>(this.url + '/getBySchoolId/'  + school.id).subscribe(
           (students) => {
-            alert(JSON.stringify(students));
             this.students = students;
             this.emitStudentSubject();
           }, (error) => {
             console.log('Erreur : ' + error);
           }
         );
-      }
-    );
   }
-
   getStudentById(id: number) {
     const student = this.students.find(
       (s) => {

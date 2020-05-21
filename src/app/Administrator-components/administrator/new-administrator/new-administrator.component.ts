@@ -46,6 +46,7 @@ export class NewAdministratorComponent implements OnInit {
       schoolPhone: new FormControl('', Validators.required),
       schoolWebSite: new FormControl('', Validators.required),
       schoolAddress: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required)
     });
   }
 
@@ -55,8 +56,6 @@ export class NewAdministratorComponent implements OnInit {
     administrator.firstName = this.administratorForm.get('firstName').value;
     administrator.email = this.administratorForm.get('email').value;
     administrator.phone = this.administratorForm.get('phone').value;
-
-
     const school = new School();
     school.name = this.administratorForm.get('schoolName').value;
     school.phone = this.administratorForm.get('schoolPhone').value;
@@ -65,8 +64,7 @@ export class NewAdministratorComponent implements OnInit {
 
     const account = new Account();
     account.userName = administrator.email;
-    account.password = administrator.lastName + '-' + administrator.firstName;
-
+    account.password = this.administratorForm.get('password').value;
     this.schoolService.createNewSchool(school).subscribe(
       (data) => {
           account.school = data;
@@ -75,6 +73,7 @@ export class NewAdministratorComponent implements OnInit {
               alert(JSON.stringify(data2));
               administrator.account = data2;
               this.administratorService.createNewAdministrator(administrator);
+              this.router.navigate(['list-student']);
             }
           );
       }

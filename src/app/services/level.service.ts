@@ -3,6 +3,8 @@ import {Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import ObjectID from 'bson-objectid';
 import {Level} from '../models/Level.module';
+import {School} from '../models/School.module';
+import {Student} from '../models/Student.module';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +35,6 @@ export class LevelService {
   getLevels() {
     this.http.get<Level[]>(this.url + '/getAll').subscribe(
       (data) => {
-        alert(data);
         this.levels = data;
         this.emitLevelSubject();
       }, (error) => {
@@ -78,6 +79,16 @@ export class LevelService {
           console.log('Erreur ! : ' + error);
         }
       );
+  }
+  getLevelsBySchoolId(school: School) {
+    this.http.get<Level[]>(this.url + '/getBySchoolId/'  + school.id).subscribe(
+      (levels) => {
+        this.levels = levels;
+        this.emitLevelSubject();
+      }, (error) => {
+        console.log('Erreur : ' + error);
+      }
+    );
   }
 
   getLevelList() {

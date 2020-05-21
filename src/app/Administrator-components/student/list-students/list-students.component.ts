@@ -19,7 +19,6 @@ export class ListStudentsComponent implements OnInit {
     this.administratorService.getAdministratorByUsernameAndPasswordFromDB(localStorage.getItem('username'),
       localStorage.getItem('password')).subscribe(
       (data) => {
-        alert(JSON.stringify(data));
         this.studentService.getStudentsBySchoolId(data.account.school);
         this.studentsSubscription = this.studentService.studentSubject.subscribe(
           (students: Student[]) => {
@@ -30,7 +29,6 @@ export class ListStudentsComponent implements OnInit {
     );
   }
   ngOnInit(): void {
-    alert('test');
     this.init();
   }
 

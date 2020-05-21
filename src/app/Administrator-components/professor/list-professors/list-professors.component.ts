@@ -4,6 +4,8 @@ import {Subscription} from 'rxjs';
 
 import {Professor} from '../../../models/Professor.module';
 import {ProfessorService} from '../../../services/professor.service';
+import {Student} from '../../../models/Student.module';
+import {AdministratorService} from '../../../services/administrator.service';
 
 @Component({
   selector: 'app-list-professors',
@@ -14,13 +16,18 @@ export class ListProfessorsComponent implements OnInit {
 
   professors: Professor[] = [];
   professorSubscription: Subscription;
-  constructor(private professorService: ProfessorService) { }
+  constructor(private professorService: ProfessorService, private administratorService: AdministratorService) { }
 
-  init(){
-    this.professorService.getProfessors();
-    this.professorSubscription = this.professorService.professorSubject.subscribe(
-      (professors: Professor[]) => {
-        this.professors = professors;
+  init() {
+    this.administratorService.getAdministratorByUsernameAndPasswordFromDB(localStorage.getItem('username'),
+      localStorage.getItem('password')).subscribe(
+      (data) => {
+        this.professorService.getProfessorsBySchoolId(data.account.school);
+        this.professorSubscription = this.professorService.professorSubject.subscribe(
+          (students: Student[]) => {
+            this.professors = students;
+          }
+        );
       }
     );
   }

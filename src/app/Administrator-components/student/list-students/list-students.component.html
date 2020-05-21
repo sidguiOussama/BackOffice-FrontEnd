@@ -1,10 +1,13 @@
-<div class="header bg-gradient-default pb-8 pt-5 pt-md-8">
+
+
+<!-- Page content -->
+<div class="container-fluid mt--7">
   <div class="container-fluid">
     <div class="header-body">
       <!-- Card stats -->
       <div class="row">
         <div class="col-xl-3 col-lg-6">
-          <div class="card card-stats mb-4 mb-xl-0">
+          <div class="card card-stats mb-4 mb-xl-0 bg-dark">
             <div class="card-body">
               <div class="row">
                 <div class="col">
@@ -18,7 +21,7 @@
                 </div>
               </div>
               <p class="mt-3 mb-0 text-muted text-sm">
-                <span class="text-nowrap">Ajouter un etudiant</span>
+                <span class="btn btn-outline-primary" routerLink="/new-student">Ajouter un etudiant</span>
               </p>
             </div>
           </div>
@@ -26,11 +29,10 @@
       </div>
     </div>
   </div>
-</div>
-<!-- Page content -->
-<div class="container-fluid mt--7">
+
+
   <!-- Table -->
-  <div class="row">
+  <div class="row" style="margin-top: 20px">
     <div class="col">
       <div class="card shadow">
         <div class="card-header border-0">
@@ -55,9 +57,9 @@
             <tr *ngFor="let s of students;">
               <th scope="row">
                 <div class="media align-items-center">
-                  <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                    <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
-                  </a>
+                  <div class="icon"  >
+                    <i class="fas fa-user"></i>
+                  </div>
                   <div class="media-body">
                     <span class="mb-0 text-sm"> {{s.cne}}</span>
                   </div>
@@ -83,3 +85,4 @@
       </div>
     </div>
   </div>
+</div>

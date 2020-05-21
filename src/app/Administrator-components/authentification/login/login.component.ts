@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AdministratorService} from '../../../services/administrator.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-  constructor(private administratorService: AdministratorService) { }
+  constructor(private administratorService: AdministratorService, private router: Router) { }
 
   init(){
     this.loginForm = new FormGroup({
@@ -23,15 +24,16 @@ export class LoginComponent implements OnInit {
     this.init();
   }
 
-  onSubmit(){
+  onSubmit() {
     const username = this.loginForm.get('username').value;
     const password = this.loginForm.get('password').value;
     const administrator = this.administratorService.getAdministratorByUsernameAndPassword(username, password);
-    if ( administrator !== undefined){
+    if ( administrator !== undefined) {
       localStorage.setItem('username', administrator.account.userName);
       localStorage.setItem('password', administrator.account.password);
       alert(localStorage.getItem('username'));
-    }else {
+      this.router.navigate(['list-student']);
+    } else {
       alert('User not exist');
     }
   }

@@ -27,11 +27,11 @@ export class NewLevelComponent implements OnInit {
     });
   }
 
-  onSubmit(){
+  onSubmit() {
 
     const administrator = this.administratorService.getAdministratorByUsernameAndPassword(localStorage.getItem('username'),
       localStorage.getItem('password'));
-    if ( administrator !== undefined){
+    if ( administrator !== undefined) {
       const level = new Level();
       level.title = this.levelForm.get('name').value;
       level.school = administrator.account.school;

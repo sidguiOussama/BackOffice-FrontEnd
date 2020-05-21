@@ -1,44 +1,70 @@
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="col-xl-12 order-xl-1">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">New Professor</h3>
+            </div>
+          </div>
+        </div>
+        <div class="card-body bg-secondary">
+          <form [formGroup]="professorForm" (ngSubmit)="OnSubmit()">
+            <h6 class="heading-small text-muted mb-4">Professor Information</h6>
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label">Prenom</label>
+                    <input type="text"  class="form-control form-control-alternative"  formControlName="firstName">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label">Nom</label>
+                    <input type="text"  class="form-control form-control-alternative"  formControlName="lastName">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="my-4" />
+            <!-- Address -->
+            <h6 class="heading-small text-muted mb-4">Contact information</h6>
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="form-control-label">Email</label>
+                    <input type="text"  class="form-control form-control-alternative" placeholder="example@gmail.com" formControlName="email">
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="form-control-label">N°tel</label>
+                    <input  class="form-control form-control-alternative" placeholder="Phone" formControlName="phone"type="text">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="my-4" />
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-md-12">
 
-<form [formGroup]="professorForm" (ngSubmit)="OnSubmit()">
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary pull-right" [disabled]="!professorForm.valid">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-
-
-  <div class="form-group">
-    <label for="firstName" class="pull-left">Prenom :</label>
-    <input class="form-control"  id="firstName" type="text" formControlName="firstName"/>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="lastName" class="pull-left">Nom :</label>
-    <input class="form-control"  id="lastName" type="text" formControlName="lastName"/>
-  </div>
-
-  <div class="form-group">
-    <label for="phone" class="pull-left">N° Tel :</label>
-    <input class="form-control"  id="phone" type="text" formControlName="phone"/>
-  </div>
-
-  <div class="form-group">
-    <label for="email" class="pull-left">Email :</label>
-    <input class="form-control"  id="email" type="text" formControlName="email"/>
-  </div>
+</div>
 
 
 
-  <div class="form-group">
-    <label for="school" class="pull-left">School :</label>
-    <select formControlName="school" class="form-control"  id="school" name="school">
-      <option *ngFor="let school of schoools" [ngValue]="school">
-        {{ school.name }}
-      </option>
-    </select>
-  </div>
-
-
-  <div class="form-group">
-    <button type="submit" class="btn btn-primary pull-right" [disabled]="!professorForm.valid">Submit</button>
-  </div>
-
-
-
-</form>

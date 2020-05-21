@@ -8,6 +8,8 @@ import {ListProfessorsComponent} from '../../Administrator-components/professor/
 import {NewAdministratorComponent} from '../../Administrator-components/administrator/new-administrator/new-administrator.component';
 import {NewLevelComponent} from '../../Administrator-components/Level/new-level/new-level.component';
 import {LoginComponent} from '../../Administrator-components/authentification/login/login.component';
+import {NewClassRoomComponent} from '../../Administrator-components/classRoom/new-class-room/new-class-room.component';
+import {ListClassRoomComponent} from '../../Administrator-components/classRoom/list-class-room/list-class-room.component';
 
 export const AdministratorLayoutRoutes: Routes = [
   { path: 'test',           component: TestComponent },
@@ -15,7 +17,7 @@ export const AdministratorLayoutRoutes: Routes = [
   { path: 'list-student', component: ListStudentsComponent},
   { path: 'new-professor', component: NewProfessorComponent},
   { path: 'list-professor', component: ListProfessorsComponent},
-  { path: 'new-administrator', component: NewAdministratorComponent},
   { path: 'new-level', component: NewLevelComponent},
-  { path: 'login-admin', component: LoginComponent},
+  { path: 'new-classRoom', component: NewClassRoomComponent},
+  { path: 'list-classRoom', component: ListClassRoomComponent}
 ];

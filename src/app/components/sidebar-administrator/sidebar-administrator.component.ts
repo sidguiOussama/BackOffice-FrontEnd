@@ -8,14 +8,10 @@ declare interface RouteInfo {
   class: string;
 }
 export const ROUTES: RouteInfo[] = [
-  { path: '/new-student', title: 'Ajouter etudiant',  icon: 'ni-tv-2 text-primary', class: '' },
-  { path: '/list-student', title: 'liste des etudiants',  icon:'ni-planet text-blue', class: '' },
-  { path: '/new-professor', title: 'ajouter enseignant',  icon:'ni-pin-3 text-orange', class: '' },
-  { path: '/list-professor', title: 'Liste des enseignants',  icon:'ni-single-02 text-yellow', class: '' },
-  { path: '/new-administrator', title: 'ajouter Administartor',  icon:'ni-bullet-list-67 text-red', class: '' },
-  { path: '/new-level', title: 'ajouter niveau',  icon:'ni-key-25 text-info', class: '' },
-  { path: '/login-admin', title: 'Login',  icon:'ni-circle-08 text-pink', class: '' },
-  { path: '/test', title: 'Test',  icon:'ni-circle-08 text-pink', class: '' }
+  { path: '/list-student', title: 'Etudiants',  icon:'fa-graduation-cap text-blue', class: '' },
+  { path: '/list-professor', title: 'Enseignants',  icon:'fa-users text-yellow', class: '' },
+  { path: '/new-level', title: 'Niveau scolaire',  icon:' fa-sort text-info', class: '' },
+  { path: '/list-classRoom', title: 'Cours',  icon:' fa-laptop text-blue', class: '' }
 
 ];
 @Component({

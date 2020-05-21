@@ -4,6 +4,8 @@ import {Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import ObjectID from 'bson-objectid';
 import {Professor} from '../models/Professor.module';
+import {School} from '../models/School.module';
+import {Student} from '../models/Student.module';
 
 @Injectable({
   providedIn: 'root'
@@ -81,6 +83,16 @@ export class ProfessorService {
       );
   }
 
+  getProfessorsBySchoolId(school: School) {
+    this.http.get<Professor[]>(this.url + '/getBySchoolId/'  + school.id).subscribe(
+      (professors) => {
+        this.professors = professors;
+        this.emitProfessorSubject();
+      }, (error) => {
+        console.log('Erreur : ' + error);
+      }
+    );
+  }
   getProfessorList() {
     this.getProfessors();
     return this.professors;

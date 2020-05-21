@@ -36,7 +36,6 @@ export class AdministratorService {
   getAdministrators() {
     this.http.get<Administrator[]>(this.url + '/getAll').subscribe(
       (data) => {
-        alert(data);
         this.administrators = data;
         this.emitAdministratorSubject();
       }, (error) => {

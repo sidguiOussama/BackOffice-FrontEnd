@@ -40,7 +40,8 @@ import {AdministratorLayoutComponent} from './layouts/administrator-layout/admin
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    AdministratorLayoutComponent
+    AdministratorLayoutComponent,
+
   ],
   providers: [
     AbsenceService,

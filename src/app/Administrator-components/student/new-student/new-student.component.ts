@@ -28,12 +28,23 @@ export class NewStudentComponent implements OnInit {
               private levelService: LevelService, private administratorService: AdministratorService) { }
 
   init() {
-    this.levelService.getLevels();
+    this.administratorService.getAdministratorByUsernameAndPasswordFromDB(localStorage.getItem('username'),
+      localStorage.getItem('password')).subscribe(
+      (data) => {
+        this.levelService.getLevelsBySchoolId(data.account.school);
+        this.levelSubscription = this.levelService.levelSubject.subscribe(
+          (levels: Level[]) => {
+            this.levels = levels;
+          }
+        );
+      }
+    );
+   /* this.levelService.getLevels();
     this.levelSubscription = this.levelService.levelSubject.subscribe(
       (levels: Level[]) => {
         this.levels = levels;
       }
-    );
+    );*/
     this.administratorService.getAdministrators();
     this.studentForm = new FormGroup({
       cne: new FormControl('', Validators.required),

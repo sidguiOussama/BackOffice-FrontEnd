@@ -5,20 +5,28 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthLayoutRoutes } from './auth-layout.routing';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { LoginComponent } from '../../pages/login/login.component';
+
 import { RegisterComponent } from '../../pages/register/register.component';
-import {TestComponent} from '../../pages/test/test.component';
+import {NewAdministratorComponent} from '../../Administrator-components/administrator/new-administrator/new-administrator.component';
+import {AdministratorLayoutRoutes} from '../administrator-layout/administrator-layout.routing';
+import {HttpClientModule} from '@angular/common/http';
+import {ClipboardModule} from 'ngx-clipboard';
+import {LoginComponent} from '../../Administrator-components/authentification/login/login.component';
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(AuthLayoutRoutes),
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    NgbModule,
+    ClipboardModule,
+    ReactiveFormsModule,
     // NgbModule
   ],
   declarations: [
-    LoginComponent,
-    RegisterComponent //,
-   // TestComponent
+    RegisterComponent,
+    NewAdministratorComponent,
+    LoginComponent
   ]
 })
 export class AuthLayoutModule { }

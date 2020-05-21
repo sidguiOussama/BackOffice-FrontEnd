@@ -1,4 +1,4 @@
-<nav class="navbar navbar-vertical navbar-expand-md navbar-light bg-white" id="sidenav-main">
+<nav class="navbar navbar-vertical navbar-expand-md navbar-light bg-dark" id="sidenav-main">
   <div class="container-fluid">
     <!-- Toggler -->
     <button class="navbar-toggler" type="button" (click)="isCollapsed=!isCollapsed"
@@ -7,7 +7,7 @@
     </button>
     <!-- Brand -->
     <a class="navbar-brand pt-0" routerLinkActive="active" [routerLink]="['/dashboard']">
-      <img src="./assets/img/brand/red.png" class="navbar-brand-img" alt="...">
+      <img src="./assets/img/brand/logo_white.png" class="navbar-brand-img" height="120" width="200">
     </a>
     <!-- User -->
 
@@ -33,8 +33,8 @@
       <!-- Navigation -->
       <ul class="navbar-nav">
         <li *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
-          <a routerLinkActive="active" [routerLink]="[menuItem.path]" class="nav-link">
-            <i class="ni {{menuItem.icon}}"></i>
+          <a routerLinkActive="active" [routerLink]="[menuItem.path]" class="nav-link" style="color: white">
+            <i class="fa {{menuItem.icon}}"></i>
             {{menuItem.title}}
           </a>
         </li>
