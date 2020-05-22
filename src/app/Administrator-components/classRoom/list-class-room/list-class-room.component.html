@@ -31,12 +31,12 @@
   <div class="row" style="margin-top: 30px">
     <div class="col">
       <div class="row bg" >
-        <div class="col-sm-4">
+        <div class="col-sm-4" *ngFor="let classRoom of classRooms;">
           <div class="card">
             <div class="card-body">
               <div class="row">
                 <div class="col">
-                  <h3 class="card-title text-uppercase text-muted mb-0">Android</h3>
+                  <h3 class="card-title text-uppercase text-muted mb-0">{{classRoom.name}}</h3>
 
                 </div>
                 <div class="col-auto">
@@ -45,53 +45,15 @@
                   </div>
                 </div>
               </div>
-              <p class="card-text">4 éme Année</p>
-              <p class="card-text">Lahmer mohammed</p>
-              <a href="#" class="btn btn-primary">Accéder au cours</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="card">
-            <div class="card-body">
-              <div class="row">
-                <div class="col">
-                  <h3 class="card-title text-uppercase text-muted mb-0">CCNA1</h3>
-
-                </div>
-                <div class="col-auto">
-                  <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                    <i class="fas fa-laptop"></i>
-                  </div>
-                </div>
-              </div>
-              <p class="card-text">4 éme Année</p>
-              <p class="card-text">Lahmer mohammed</p>
-              <a href="#" class="btn btn-primary">Accéder au cours</a>
+              <p class="card-text">{{classRoom.level.title}}</p>
+              <p class="card-text">{{classRoom.professor.firstName + ' ' + classRoom.professor.lastName}}</p>
+              <a  class="btn btn-primary">Accéder au cours</a>
             </div>
           </div>
         </div>
 
-        <div class="col-sm-4">
-          <div class="card">
-            <div class="card-body">
-              <div class="row">
-                <div class="col">
-                  <h3 class="card-title text-uppercase text-muted mb-0">CCNA2</h3>
 
-                </div>
-                <div class="col-auto">
-                  <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                    <i class="fas fa-laptop"></i>
-                  </div>
-                </div>
-              </div>
-              <p class="card-text">4 éme Année</p>
-              <p class="card-text">Lahmer mohammed</p>
-              <a href="#" class="btn btn-primary">Accéder au cours</a>
-            </div>
-          </div>
-        </div>
+
 
       </div>
     </div>

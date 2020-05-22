@@ -3,6 +3,8 @@ import {Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import ObjectID from 'bson-objectid';
 import {ClassRoom} from '../models/ClassRoom.module';
+import {School} from '../models/School.module';
+import {Student} from '../models/Student.module';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +35,6 @@ export class ClassRoomService {
   getClassRooms() {
     this.http.get<ClassRoom[]>(this.url + '/getAll').subscribe(
       (data) => {
-        alert(data);
         this.classrooms = data;
         this.emitClassRoomSubject();
       }, (error) => {
@@ -80,6 +81,16 @@ export class ClassRoomService {
       );
   }
 
+  getClassRoomBySchoolId(school: School) {
+    this.http.get<ClassRoom[]>(this.url + '/getBySchoolId/'  + school.id).subscribe(
+      (classRooms) => {
+        this.classrooms = classRooms;
+        this.emitClassRoomSubject();
+      }, (error) => {
+        console.log('Erreur : ' + error);
+      }
+    );
+  }
   getClassRoomList() {
     this.getClassRooms();
     return this.classrooms;

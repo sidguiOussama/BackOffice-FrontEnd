@@ -39,12 +39,6 @@ export class NewStudentComponent implements OnInit {
         );
       }
     );
-   /* this.levelService.getLevels();
-    this.levelSubscription = this.levelService.levelSubject.subscribe(
-      (levels: Level[]) => {
-        this.levels = levels;
-      }
-    );*/
     this.administratorService.getAdministrators();
     this.studentForm = new FormGroup({
       cne: new FormControl('', Validators.required),

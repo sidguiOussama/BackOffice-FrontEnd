@@ -6,6 +6,8 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SidebarAdministratorComponent } from './sidebar-administrator/sidebar-administrator.component';
+import { SidebarStudentComponent } from './sidebar-student/sidebar-student.component';
+import { SidebarProfessorComponent } from './sidebar-professor/sidebar-professor.component';
 
 @NgModule({
   imports: [
@@ -17,13 +19,17 @@ import { SidebarAdministratorComponent } from './sidebar-administrator/sidebar-a
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    SidebarAdministratorComponent
+    SidebarAdministratorComponent,
+    SidebarStudentComponent,
+    SidebarProfessorComponent
   ],
   exports: [
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    SidebarAdministratorComponent
+    SidebarAdministratorComponent,
+    SidebarStudentComponent,
+    SidebarProfessorComponent
   ]
 })
 export class ComponentsModule { }

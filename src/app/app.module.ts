@@ -22,8 +22,8 @@ import {SessionService} from './services/session.service';
 import {StudentService} from './services/student.service';
 import {LevelService} from './services/level.service';
 import {AdministratorLayoutComponent} from './layouts/administrator-layout/administrator-layout/administrator-layout.component';
-
-
+import {StudentLayoutComponent} from './layouts/student-layout/student-layout/student-layout.component';
+import {ProfessorLayoutComponent} from './layouts/professor-layout/professor-layout/professor-layout.component';
 
 
 @NgModule({
@@ -41,6 +41,8 @@ import {AdministratorLayoutComponent} from './layouts/administrator-layout/admin
     AdminLayoutComponent,
     AuthLayoutComponent,
     AdministratorLayoutComponent,
+    StudentLayoutComponent,
+    ProfessorLayoutComponent
 
   ],
   providers: [
