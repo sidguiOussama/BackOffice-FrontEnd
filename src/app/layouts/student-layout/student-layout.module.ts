@@ -8,13 +8,14 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ClipboardModule} from 'ngx-clipboard';
 import {StudentLayoutRoutes} from './student-layout.routing';
-import {TestStudentComponent} from '../../components-student/test-student/test-student.component';
+
+import {ListClassRoomStudentComponent} from '../../components-student/class-room/list-class-room-student/list-class-room-student.component';
 
 
 
 @NgModule({
   declarations: [
-    TestStudentComponent
+    ListClassRoomStudentComponent
   ],
   imports: [
     CommonModule,

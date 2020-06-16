@@ -13,7 +13,7 @@ import {ProfessorLayoutComponent} from './layouts/professor-layout/professor-lay
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login-admin',
     pathMatch: 'full',
   }, {
     path: '',
@@ -62,7 +62,7 @@ const routes: Routes = [
     ]
   }, {
     path: '**',
-    redirectTo: 'dashboard'
+    redirectTo: 'login-admin'
   }
 ];
 

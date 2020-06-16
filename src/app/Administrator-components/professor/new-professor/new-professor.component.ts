@@ -9,6 +9,7 @@ import {Account} from '../../../models/Account.module';
 import {Professor} from '../../../models/Professor.module';
 import {ProfessorService} from '../../../services/professor.service';
 import {AdministratorService} from '../../../services/administrator.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-new-professor',
@@ -20,7 +21,7 @@ export class NewProfessorComponent implements OnInit {
   professorForm: FormGroup;
   professor: Professor;
   constructor(private professorService: ProfessorService, private  accountService: AccountService,
-              private administratorService: AdministratorService) { }
+              private administratorService: AdministratorService, private router: Router ) { }
 
   init() {
     this.professorForm = new FormGroup({
@@ -55,6 +56,7 @@ export class NewProfessorComponent implements OnInit {
         }
       );
       alert('Bien enregistre ');
+      this.router.navigate(['list-professor']);
     } else {
       alert('Erreur Connexion');
     }

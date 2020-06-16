@@ -1,9 +1,10 @@
 import { Routes } from '@angular/router';
 
-import {TestProfessorComponent} from '../../components-professor/test-professor/test-professor.component';
+
+import {ListClassRoomComponent} from '../../components-professor/classRoom/list-class-room/list-class-room.component';
 
 
 
 export const ProfessorLayoutRoutes: Routes = [
-  { path: 'test-professor',           component: TestProfessorComponent },
+  { path: 'list-classRoomProfessor',           component: ListClassRoomComponent },
 ];

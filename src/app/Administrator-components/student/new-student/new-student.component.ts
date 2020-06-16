@@ -12,6 +12,7 @@ import {Subscription} from 'rxjs';
 import {AdministratorService} from '../../../services/administrator.service';
 import {Level} from '../../../models/Level.module';
 import {LevelService} from '../../../services/level.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-new-student',
@@ -25,7 +26,8 @@ export class NewStudentComponent implements OnInit {
   levels: Level[] = [];
   levelSubscription: Subscription;
   constructor(private studentService: StudentService, private  accountService: AccountService,
-              private levelService: LevelService, private administratorService: AdministratorService) { }
+              private levelService: LevelService, private administratorService: AdministratorService ,
+              private router: Router) { }
 
   init() {
     this.administratorService.getAdministratorByUsernameAndPasswordFromDB(localStorage.getItem('username'),
@@ -81,6 +83,7 @@ export class NewStudentComponent implements OnInit {
         }
       );
       alert('Bien enregistre ');
+      this.router.navigate(['list-student']);
     }else {
       alert('User not exist');
     }

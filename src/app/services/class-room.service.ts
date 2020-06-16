@@ -5,6 +5,8 @@ import ObjectID from 'bson-objectid';
 import {ClassRoom} from '../models/ClassRoom.module';
 import {School} from '../models/School.module';
 import {Student} from '../models/Student.module';
+import {Professor} from '../models/Professor.module';
+import {Level} from '../models/Level.module';
 
 @Injectable({
   providedIn: 'root'
@@ -94,5 +96,26 @@ export class ClassRoomService {
   getClassRoomList() {
     this.getClassRooms();
     return this.classrooms;
+  }
+
+  getClassRoomByProfessorId(professor: Professor) {
+    this.http.get<ClassRoom[]>(this.url + '/getByProfessorId/'  + professor.id).subscribe(
+      (classRooms) => {
+        this.classrooms = classRooms;
+        this.emitClassRoomSubject();
+      }, (error) => {
+        console.log('Erreur : ' + error);
+      }
+    );
+  }
+  getClassRoomByLevelId(level: Level) {
+    this.http.get<ClassRoom[]>(this.url + '/getByLevelId/'  + level.id).subscribe(
+      (classRooms) => {
+        this.classrooms = classRooms;
+        this.emitClassRoomSubject();
+      }, (error) => {
+        console.log('Erreur : ' + error);
+      }
+    );
   }
 }

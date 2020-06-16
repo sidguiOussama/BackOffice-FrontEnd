@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import {TestProfessorComponent} from '../../components-professor/test-professor/test-professor.component';
-import {TestStudentComponent} from '../../components-student/test-student/test-student.component';
+
+import {ListClassRoomStudentComponent} from '../../components-student/class-room/list-class-room-student/list-class-room-student.component';
 
 
 
 export const StudentLayoutRoutes: Routes = [
-  { path: 'test-student',           component: TestStudentComponent },
+  { path: 'list-classRoomStudent',           component: ListClassRoomStudentComponent },
 ];

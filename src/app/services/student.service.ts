@@ -5,6 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import ObjectID from 'bson-objectid';
 import {Student} from '../models/Student.module';
 import {School} from '../models/School.module';
+import {Professor} from '../models/Professor.module';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +35,6 @@ export class StudentService {
   getStudents() {
     this.http.get<Student[]>(this.url + '/getAll').subscribe(
       (data) => {
-        alert(data);
         this.students = data;
         this.emitStudentSubject();
       }, (error) => {
@@ -94,5 +94,16 @@ export class StudentService {
   getStudentList() {
     this.getStudents();
     return this.students;
+  }
+  getStudentByUsernameAndPassword(username: string, password: string) {
+    const student = this.students.find(
+      (ad) => {
+        return ad.account.userName === username && ad.account.password === password;
+      }
+    );
+    return student;
+  }
+  getStudentByUsernameAndPasswordFromDB(username: string, password: string) {
+    return this.http.get<Student>(this.url + '/getByUsernameAndPassword/' + username + '/' + password);
   }
 }

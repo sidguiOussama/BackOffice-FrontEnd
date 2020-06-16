@@ -13,6 +13,7 @@ import {ProfessorService} from '../../../services/professor.service';
 import {Student} from '../../../models/Student.module';
 import {Account} from '../../../models/Account.module';
 import {ClassRoom} from '../../../models/ClassRoom.module';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-new-class-room',
@@ -29,7 +30,7 @@ export class NewClassRoomComponent implements OnInit {
   professorSubscription: Subscription;
   constructor(private classRoomService: ClassRoomService, private  accountService: AccountService,
               private levelService: LevelService, private administratorService: AdministratorService,
-              private professorService: ProfessorService ) { }
+              private professorService: ProfessorService, private router: Router ) { }
 
 
   init() {
@@ -76,6 +77,7 @@ export class NewClassRoomComponent implements OnInit {
       this.classRoom.professor = professor;
       this.classRoomService.createNewClassRoom(this.classRoom);
       alert('Bien enregistre ');
+      this.router.navigate(['list-classRoom']);
     } else {
       alert('User not exist');
     }

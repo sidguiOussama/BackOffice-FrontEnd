@@ -5,6 +5,7 @@ import {Level} from '../../../models/Level.module';
 import {AdministratorService} from '../../../services/administrator.service';
 import {Student} from '../../../models/Student.module';
 import {Account} from '../../../models/Account.module';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-new-level',
@@ -14,7 +15,8 @@ import {Account} from '../../../models/Account.module';
 export class NewLevelComponent implements OnInit {
 
   levelForm: FormGroup;
-  constructor(private levelService: LevelService, private administratorService: AdministratorService) { }
+  constructor(private levelService: LevelService, private administratorService: AdministratorService,
+              private router: Router ) { }
 
   ngOnInit(): void {
     this.administratorService.getAdministrators();
@@ -37,7 +39,8 @@ export class NewLevelComponent implements OnInit {
       level.school = administrator.account.school;
       this.levelService.createNewLevel(level);
       alert('Bien enregistre ');
-    }else {
+      this.router.navigate(['list-student']);
+    } else {
       alert('User not exist');
     }
   }

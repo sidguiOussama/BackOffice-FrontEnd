@@ -7,13 +7,13 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ClipboardModule} from 'ngx-clipboard';
 import {ProfessorLayoutRoutes} from './professor-layout.routing';
 
-import {TestProfessorComponent} from '../../components-professor/test-professor/test-professor.component';
+import {ListClassRoomComponent} from '../../components-professor/classRoom/list-class-room/list-class-room.component';
 
 
 
 @NgModule({
   declarations: [
-    TestProfessorComponent
+    ListClassRoomComponent
   ],
   imports: [
     CommonModule,

@@ -26,6 +26,7 @@ import {StudentLayoutComponent} from './layouts/student-layout/student-layout/st
 import {ProfessorLayoutComponent} from './layouts/professor-layout/professor-layout/professor-layout.component';
 
 
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -42,7 +43,7 @@ import {ProfessorLayoutComponent} from './layouts/professor-layout/professor-lay
     AuthLayoutComponent,
     AdministratorLayoutComponent,
     StudentLayoutComponent,
-    ProfessorLayoutComponent
+    ProfessorLayoutComponent,
 
   ],
   providers: [

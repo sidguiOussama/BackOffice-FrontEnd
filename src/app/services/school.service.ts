@@ -26,7 +26,6 @@ export class SchoolService {
   getSchools() {
     this.http.get<School[]>(this.url + '/getAll').subscribe(
       (data) => {
-        alert(data);
         this.schools = data;
         this.emitSchoolSubject();
       }, (error) => {

@@ -6,6 +6,7 @@ import ObjectID from 'bson-objectid';
 import {Professor} from '../models/Professor.module';
 import {School} from '../models/School.module';
 import {Student} from '../models/Student.module';
+import {Administrator} from '../models/Administrator.module';
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +37,6 @@ export class ProfessorService {
   getProfessors() {
     this.http.get<Professor[]>(this.url + '/getAll').subscribe(
       (data) => {
-        alert(data);
         this.professors = data;
         this.emitProfessorSubject();
       }, (error) => {
@@ -96,5 +96,16 @@ export class ProfessorService {
   getProfessorList() {
     this.getProfessors();
     return this.professors;
+  }
+  getProfesssorByUsernameAndPassword(username: string, password: string) {
+    const professor = this.professors.find(
+      (ad) => {
+        return ad.account.userName === username && ad.account.password === password;
+      }
+    );
+    return professor;
+  }
+  getProfesssorByUsernameAndPasswordFromDB(username: string, password: string) {
+    return this.http.get<Professor>(this.url + '/getByUsernameAndPassword/' + username + '/' + password);
   }
 }
