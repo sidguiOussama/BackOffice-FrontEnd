@@ -1,0 +1,19 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active disabled" disabled="true"><h3>Devoirs</h3></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" style="cursor: pointer;" (click)="onDocument()"><h3>Cours</h3></a>
+  </li>
+</ul>
+
+<div class="container col-md-8 mx-auto mt-5 ">
+  <h3>Liste des devoirs</h3>
+
+  <div class="alert" style="padding: 5px; margin-top: 10px;" *ngFor="let item of homeworks;">
+    <i class="fa fa-file" aria-hidden="true"></i>
+    {{ item.title }}
+    <button type="button" class="btn btn-success" style="float: right;" (click)="onDetails(item)">files</button>
+    <hr/>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" style="cursor: pointer;" (click)="onHomework()"><h3>Devoirs</h3></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" ><h3>Cours</h3></a>
+  </li>
+</ul>
+
+<div class="container col-md-8 mx-auto mt-5 ">
+  <h3>Liste des documents</h3>
+
+  <form [formGroup]="createForm" (submit)="onSubmit()">
+    <div class="form-group">
+      <label>Title</label>
+      <div class="row">
+        <div class="col-8">
+          <input type="text" class="form-control" formControlName="title">
+        </div>
+        <div class="col">
+          <button type="submit" class="btn btn-primary ml-5">Create Document</button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="alert" style="padding: 5px; margin-top: 10px;" *ngFor="let item of documents;">
+    <i class="fa fa-folder" aria-hidden="true"></i>
+    {{ item.title }}
+    <button type="button" class="btn btn-danger ml-3" style="float: right;" (click)="onDelete(item)">del</button>
+    <button type="button" class="btn btn-success" style="float: right;" (click)="onDetails(item)">files</button>
+    <hr/>
+  </div>
+
+</div>
+
+

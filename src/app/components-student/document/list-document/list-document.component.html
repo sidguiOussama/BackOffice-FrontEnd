@@ -1,0 +1,21 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" style="cursor: pointer;" (click)="onHomework()"><h3>Devoirs</h3></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" ><h3>Cours</h3></a>
+  </li>
+</ul>
+
+
+<div class="container col-md-8 mx-auto mt-5 ">
+  <h3>Liste des documents</h3>
+
+  <div class="alert" *ngFor="let item of documents;">
+    <i class="fa fa-folder" aria-hidden="true"></i>
+    {{ item.title }}
+    <button type="button" class="btn btn-success" style="float: right;" (click)="onDetails(item)">files</button>
+    <hr/>
+  </div>
+
+</div>
